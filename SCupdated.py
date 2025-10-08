@@ -54,13 +54,15 @@ while response is not "done":
                 cart = pd.concat([cart, entry], ignore_index=True)
                 if (int(c)-int(count)) >=0:
                     edit_record_in_postgresql(response,int(c)-int(count) )
-                else:
-                    print('WE DO NOT HAVE THAT ITEM')
+
             if (int(c)-int(count)) < 0:
                 print('OUTSIDE OF OUR QUANTITY ')
                 #create a subtract def
             #parse row of item to get quantity and cost
                 add_record_in_postgresql(response, count, itemcost)
+
+        else:
+            print('WE DO NOT HAVE THAT ITEM')
 
 
 
